@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,13 +6,21 @@ public class Main {
         List<Integer> positiveList = new ArrayList<>();
 
         for (int num : intList) {
-            if (num > 0){
+            if (num > 0) {
                 positiveList.add(num);
             }
         }
 
-        
+        Iterator itr = positiveList.iterator();
 
+        while (itr.hasNext()) {
+            int x = (int) itr.next();
+            if (x % 2 != 0) {
+                itr.remove();
+            }
+        }
+
+        Collections.sort(positiveList);
         System.out.println(positiveList);
     }
 }
